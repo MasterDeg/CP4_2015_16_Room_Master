@@ -1,11 +1,6 @@
-//This will be the master file for our class
-//Please make sure that the code makes sense and you clean it up well!
-
 int panicButton = 0;  //variable for the panic button (location)
-
 int backLights = 1;   //variable for back lights (location)
 int frontLights = 2;  //variable for front lights (location)
-
 byte leds = 0;        //variable for lights
 
 boolean soundOn = true; //variable for whether or not the sound is on; "= true;" TO BE DELETED
@@ -50,7 +45,8 @@ long debounce = 200;   // the debounce time, increase if the output flickers
 
 
 /*
-Adafruit Arduino - Lesson 6. Inputs
+Group MFCJ: "Adafruit Arduino - Lesson 6. Inputs" adaptation
+Beginning of declaration of variables
 */
 
 #include <Servo.h>
@@ -64,21 +60,21 @@ Adafruit Arduino - Lesson 6. Inputs
   const int SG90 = 9; //Analog pin A3 connected to myservo
   int pos = 0;    // variable to store the servo position
 
+//end of group MFCJ setup
+
 *PROJECTOR: ON/OFF ONE BUTTON
 
 /*Taken from http://danthompsonsblog.blogspot.ca/2011/12/arduino-push-button-onoff-example.html
 /* Debounce
 
-Each time the input pin goes from LOW to HIGH (e.g. because of a push-button press), the output pin is toggled from LOW to HIGH or HIGH to LOW. There's a minimum delay between toggles to debounce the circuit (i.e. to ignore noise).
+Each time the input pin goes from LOW to HIGH (e.g. because of a push-button press), 
+the output pin is toggled from LOW to HIGH or HIGH to LOW. 
+There's a minimum delay between toggles to debounce the circuit (i.e. to ignore noise).
 
 The circuit:
 LED attached from pin 13 to ground
 pushbutton attached from pin 2 to +5V
-10K resistor attached from pin 2 to ground
-
-This example code is in the public domain.
-
-http://www.arduino.cc/en/Tutorial/Debounce */
+10K resistor attached from pin 2 to ground */
 
 // constants won't change. They're used here to // set pin numbers: const int ProjectorButtonPin = 2; // the number of the pushbutton pin const int ProjectorPin = 13; // the number of the LED pin
 
@@ -192,6 +188,8 @@ void loop()
    }
 }
 
+// Group MFCJ void loop start
+
   Serial.print("Switch: ");             //the name switch appears on the serial monitor
     Serial.print(digitalRead(SW_pin));    //shows the switch on the serial monitor
     Serial.print("\n");
@@ -214,7 +212,7 @@ void loop()
     pos += 10;}
 // read the state of the switch into a local variable: int reading = digitalRead(ProjectorButtonPin);
 
-
+// Group MFCJ void setup ending
 
 // check to see if you just pressed the button // (i.e. the input went from LOW to HIGH), and you've waited // long enough since the last press to ignore any noise:
 
