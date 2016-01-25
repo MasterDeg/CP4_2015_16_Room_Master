@@ -87,7 +87,9 @@ http://www.arduino.cc/en/Tutorial/Debounce */
 // the following variables are long's because the time, measured in miliseconds, // will quickly become a bigger number than can be stored in an int. long lastDebounceTime = 0; // the last time the output pin was toggled long debounceDelay = 50; // the debounce time; increase if the output flickers
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Beginning of declaring variables for sound code
 
 int ledPin = 5; //the led wire is in pin 5 on the arduino
 int buttonON = 9; //the wire for the on button is connected to pin 9 on the arduino
@@ -106,6 +108,10 @@ bool x; //boolean labelled as x
 bool y; //boolean labelled as y
 
 byte leds = 0; //
+
+// End of declaring variables for sound code
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
  
 void setup() 
 {
@@ -130,8 +136,10 @@ pinMode(SW_pin, INPUT);
    digitalWrite(SW_pin, HIGH);
    Serial.begin(115200);
    myservo.attach(9);  // attaches the servo on pin 9 to the servo object 
+   
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+// Beginning of void setup for sound code (main code)
 
   pinMode(ledPin, OUTPUT); // the led is the output
   pinMode(buttonON, INPUT_PULLUP); // the first button to turn on the circuit is the input
@@ -140,6 +148,12 @@ pinMode(SW_pin, INPUT);
   x = false; //boolean set up as false 
   y = false;  //boolean set up as false 
 }
+ 
+// End of void setup for sound code
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Beginning of void loop for sound code 
  
 void loop() 
 {
@@ -191,6 +205,12 @@ void loop()
      y = true; //boolean y becomes true
    }
 }
+
+// End of void loop for sound code (main code)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
   Serial.print("Switch: ");             //the name switch appears on the serial monitor
     Serial.print(digitalRead(SW_pin));    //shows the switch on the serial monitor
