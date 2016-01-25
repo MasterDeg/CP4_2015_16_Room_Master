@@ -1,6 +1,11 @@
+//This will be the master file for our class
+//Please make sure that the code makes sense and you clean it up well!
+
 int panicButton = 0;  //variable for the panic button (location)
+
 int backLights = 1;   //variable for back lights (location)
 int frontLights = 2;  //variable for front lights (location)
+
 byte leds = 0;        //variable for lights
 
 boolean soundOn = true; //variable for whether or not the sound is on; "= true;" TO BE DELETED
@@ -41,12 +46,11 @@ long time = 0;         // the last time the output pin was toggled
 long debounce = 200;   // the debounce time, increase if the output flickers
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /*
-Group MFCJ: "Adafruit Arduino - Lesson 6. Inputs" adaptation
-Beginning of declaration of variables
+ Beginning of Group MFCJ void setup for blinds based off Adafruit Arduino - Lesson 6. Inputs
 */
 
 #include <Servo.h>
@@ -59,22 +63,26 @@ Beginning of declaration of variables
   const int SW_pin = 2; // Analog pin A0 connected X to output
   const int SG90 = 9; //Analog pin A3 connected to myservo
   int pos = 0;    // variable to store the servo position
-
-//end of group MFCJ setup
+ 
+// End of Group MFCJ setup
+ 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 *PROJECTOR: ON/OFF ONE BUTTON
 
 /*Taken from http://danthompsonsblog.blogspot.ca/2011/12/arduino-push-button-onoff-example.html
 /* Debounce
 
-Each time the input pin goes from LOW to HIGH (e.g. because of a push-button press), 
-the output pin is toggled from LOW to HIGH or HIGH to LOW. 
-There's a minimum delay between toggles to debounce the circuit (i.e. to ignore noise).
+Each time the input pin goes from LOW to HIGH (e.g. because of a push-button press), the output pin is toggled from LOW to HIGH or HIGH to LOW. There's a minimum delay between toggles to debounce the circuit (i.e. to ignore noise).
 
 The circuit:
 LED attached from pin 13 to ground
 pushbutton attached from pin 2 to +5V
-10K resistor attached from pin 2 to ground */
+10K resistor attached from pin 2 to ground
+
+This example code is in the public domain.
+
+http://www.arduino.cc/en/Tutorial/Debounce */
 
 // constants won't change. They're used here to // set pin numbers: const int ProjectorButtonPin = 2; // the number of the pushbutton pin const int ProjectorPin = 13; // the number of the LED pin
 
@@ -83,7 +91,9 @@ pushbutton attached from pin 2 to +5V
 // the following variables are long's because the time, measured in miliseconds, // will quickly become a bigger number than can be stored in an int. long lastDebounceTime = 0; // the last time the output pin was toggled long debounceDelay = 50; // the debounce time; increase if the output flickers
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Beginning of declaring variables for sound code
 
 int ledPin = 5; //the led wire is in pin 5 on the arduino
 int buttonON = 9; //the wire for the on button is connected to pin 9 on the arduino
@@ -102,6 +112,10 @@ bool x; //boolean labelled as x
 bool y; //boolean labelled as y
 
 byte leds = 0; //
+
+// End of declaring variables for sound code
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
  
 void setup() 
 {
@@ -126,8 +140,10 @@ pinMode(SW_pin, INPUT);
    digitalWrite(SW_pin, HIGH);
    Serial.begin(115200);
    myservo.attach(9);  // attaches the servo on pin 9 to the servo object 
+   
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+// Beginning of void setup for sound code (main code)
 
   pinMode(ledPin, OUTPUT); // the led is the output
   pinMode(buttonON, INPUT_PULLUP); // the first button to turn on the circuit is the input
@@ -137,8 +153,14 @@ pinMode(SW_pin, INPUT);
   y = false;  //boolean set up as false 
 }
  
+// End of void setup for sound code
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
 void loop() 
 {
+  // Beginning of void loop for sound code 
+  
   if ((digitalRead(buttonON) == LOW) &&  (x == false)) // if the button is off on pin number 9         
   {for (int i = 0; i < numTones; i++) // plays 1 through 2: plays 1 and adds a value (1) to play 2
   {
@@ -188,7 +210,11 @@ void loop()
    }
 }
 
-// Group MFCJ void loop start
+// End of void loop for sound code (main code)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Beginning of Group MFCJ Void loop to make the blinds move based off the joystick
 
   Serial.print("Switch: ");             //the name switch appears on the serial monitor
     Serial.print(digitalRead(SW_pin));    //shows the switch on the serial monitor
@@ -212,7 +238,9 @@ void loop()
     pos += 10;}
 // read the state of the switch into a local variable: int reading = digitalRead(ProjectorButtonPin);
 
-// Group MFCJ void setup ending
+// End of Group MFCJ void loop 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // check to see if you just pressed the button // (i.e. the input went from LOW to HIGH), and you've waited // long enough since the last press to ignore any noise:
 
