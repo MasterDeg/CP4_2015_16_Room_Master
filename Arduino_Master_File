@@ -87,7 +87,11 @@ http://www.arduino.cc/en/Tutorial/Debounce */
 // the following variables are long's because the time, measured in miliseconds, // will quickly become a bigger number than can be stored in an int. long lastDebounceTime = 0; // the last time the output pin was toggled long debounceDelay = 50; // the debounce time; increase if the output flickers
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// BEGINNING OF SOUND CODE
+
+// Team composed of Bryan Catudal, Matthias Lee Poy-Paxman, and Alexandre Quesnel, 4-1
 
 int ledPin = 5; //the led wire is in pin 5 on the arduino
 int buttonON = 9; //the wire for the on button is connected to pin 9 on the arduino
@@ -191,6 +195,12 @@ void loop()
      y = true; //boolean y becomes true
    }
 }
+
+// END OF SOUND CODE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
   Serial.print("Switch: ");             //the name switch appears on the serial monitor
     Serial.print(digitalRead(SW_pin));    //shows the switch on the serial monitor
