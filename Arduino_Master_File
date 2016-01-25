@@ -31,10 +31,9 @@ int angle = 0;        //servo position (degrees)
  * David A. Mellis
  * 21 November 2006
  */
-
+//start declare variables for RyanPerkins
 int inPin = 2;         // the number of the input pin
 int outPin = 12;       // the number of the output pin
-
 
 int state = HIGH;      // the current state of the output pin
 int reading;           // the current reading from the input pin
@@ -44,7 +43,7 @@ int previous = LOW;    // the previous reading from the input pin
 // will quickly become a bigger number than can be stored in an int.
 long time = 0;         // the last time the output pin was toggled
 long debounce = 200;   // the debounce time, increase if the output flickers
-
+//end declare variables for RyanPerkins
 
 
 
@@ -115,10 +114,10 @@ byte leds = 0; //
  
 void setup() 
 {
-
+//start setup for RyanPerkins
 pinMode(inPin, INPUT);
   pinMode(outPin, OUTPUT);
-
+//end setup for RyanPerkins
 
 pinMode(panicButton, INPUT_PULLUP);   //Register the panic button as an input
   pinMode(backLights, OUTPUT);          //Register the back lights as an output
@@ -278,7 +277,7 @@ void Spin(){
     delay(10);
   }
   servo.write(0);                         //And repeat
-
+//start Loop for RyanPerkins
 reading = digitalRead(inPin);
 
   // if the input just went from LOW and HIGH and we've waited long enough
@@ -299,3 +298,4 @@ reading = digitalRead(inPin);
 
 
 }
+//end loop for RyanPerkins
