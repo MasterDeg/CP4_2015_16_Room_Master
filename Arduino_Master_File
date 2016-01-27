@@ -50,7 +50,7 @@ long debounce = 200;   // the debounce time, increase if the output flickers
 
 
 /*
-Adafruit Arduino - Lesson 6. Inputs
+Group MFCJ void setup based off Adafruit Arduino - Lesson 6. Inputs
 */
 
 #include <Servo.h>
@@ -63,6 +63,8 @@ Adafruit Arduino - Lesson 6. Inputs
   const int SW_pin = 2; // Analog pin A0 connected X to output
   const int SG90 = 9; //Analog pin A3 connected to myservo
   int pos = 0;    // variable to store the servo position
+  
+//End of Group MFCJ void setup
 
 *PROJECTOR: ON/OFF ONE BUTTON
 
@@ -210,7 +212,7 @@ void loop()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+//Beginning of void loop for group MFCJ code
 
   Serial.print("Switch: ");             //the name switch appears on the serial monitor
     Serial.print(digitalRead(SW_pin));    //shows the switch on the serial monitor
@@ -234,7 +236,7 @@ void loop()
     pos += 10;}
 // read the state of the switch into a local variable: int reading = digitalRead(ProjectorButtonPin);
 
-
+//End of group MFCJ void loop
 
 // check to see if you just pressed the button // (i.e. the input went from LOW to HIGH), and you've waited // long enough since the last press to ignore any noise:
 
