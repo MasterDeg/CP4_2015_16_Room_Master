@@ -50,7 +50,7 @@ long debounce = 200;   // the debounce time, increase if the output flickers
 
 
 /*
-Group MFCJ void setup based off Adafruit Arduino - Lesson 6. Inputs
+Group MFCJ declaration based off Adafruit Arduino - Lesson 6. Inputs
 */
 
 #include <Servo.h>
@@ -64,7 +64,7 @@ Group MFCJ void setup based off Adafruit Arduino - Lesson 6. Inputs
   const int SG90 = 9; //Analog pin A3 connected to myservo
   int pos = 0;    // variable to store the servo position
   
-//End of Group MFCJ void setup
+//End of Group MFCJ declaration
 
 *PROJECTOR: ON/OFF ONE BUTTON
 
@@ -212,7 +212,7 @@ void loop()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Beginning of void loop for group MFCJ code
+//Beginning of void setup for group MFCJ code
 
   Serial.print("Switch: ");             //the name switch appears on the serial monitor
     Serial.print(digitalRead(SW_pin));    //shows the switch on the serial monitor
@@ -224,6 +224,8 @@ void loop()
     Serial.println(analogRead(VRy_pin));  //shows the Y coordonate on the serial monitor
     Serial.print("\n");
     delay(100);
+  
+ //Beginning of Void loop for group MFCJ and end of void setup
   
     if (analogRead(VRy_pin) < 450){  //If the analog stick is pushed down, the servo will move to the right by 10
       
