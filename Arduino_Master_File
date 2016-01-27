@@ -134,10 +134,14 @@ pinMode(panicButton, INPUT_PULLUP);   //Register the panic button as an input
 
 pinMode(ProjectorButtonPin, INPUT); pinMode(ProjectorPin, OUTPUT); Serial.begin(9600);
 
+//Beginning of Void setup for group MFCJ
+
 pinMode(SW_pin, INPUT);
    digitalWrite(SW_pin, HIGH);
    Serial.begin(115200);
    myservo.attach(9);  // attaches the servo on pin 9 to the servo object 
+   
+//End of void setup for group MFCJ
    
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -212,7 +216,7 @@ void loop()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Beginning of void setup for group MFCJ code
+//Beginning of void loop for group MFCJ code
 
   Serial.print("Switch: ");             //the name switch appears on the serial monitor
     Serial.print(digitalRead(SW_pin));    //shows the switch on the serial monitor
@@ -224,8 +228,6 @@ void loop()
     Serial.println(analogRead(VRy_pin));  //shows the Y coordonate on the serial monitor
     Serial.print("\n");
     delay(100);
-  
- //Beginning of Void loop for group MFCJ and end of void setup
   
     if (analogRead(VRy_pin) < 450){  //If the analog stick is pushed down, the servo will move to the right by 10
       
