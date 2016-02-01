@@ -21,17 +21,8 @@ Servo servo;          //registers a servo motor
 
 int angle = 0;        //servo position (degrees)
 
-/* switch
- * 
- * Each time the input pin goes from LOW to HIGH (e.g. because of a push-button
- * press), the output pin is toggled from LOW to HIGH or HIGH to LOW.  There's
- * a minimum delay between toggles to debounce the circuit (i.e. to ignore
- * noise).  
- *
- * David A. Mellis
- * 21 November 2006
- */
 
+//start declare for RyanPerkins
 int inPin = 2;         // the number of the input pin
 int outPin = 12;       // the number of the output pin
 
@@ -44,7 +35,7 @@ int previous = LOW;    // the previous reading from the input pin
 // will quickly become a bigger number than can be stored in an int.
 long time = 0;         // the last time the output pin was toggled
 long debounce = 200;   // the debounce time, increase if the output flickers
-
+//end declare for RyanPerkins
 
 
 
@@ -124,10 +115,10 @@ This example code is in the public domain.
  
 void setup() 
 {
-
+//start setup for RyanPerkins
 pinMode(inPin, INPUT);
   pinMode(outPin, OUTPUT);
-
+//end setup for RyanPerkins
 
 pinMode(panicButton, INPUT_PULLUP);   //Register the panic button as an input
   pinMode(backLights, OUTPUT);          //Register the back lights as an output
@@ -341,7 +332,7 @@ void Spin(){
     delay(10);
   }
   servo.write(0);                         //And repeat
-
+// start loop for RyanPerkins
 reading = digitalRead(inPin);
 
   // if the input just went from LOW and HIGH and we've waited long enough
@@ -359,8 +350,7 @@ reading = digitalRead(inPin);
   digitalWrite(outPin, state);
 
   previous = reading;
-
-
+//end Loop for RyanPerkins
 }
 
 
