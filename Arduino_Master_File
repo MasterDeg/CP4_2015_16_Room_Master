@@ -362,4 +362,71 @@ reading = digitalRead(inPin);
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Bench Squad (Chair Quads?)
+
+int LightButtonInPin = 2; //Input button signal to pin 12
+int LightButtonOutPin = 12; //Output to light circuit
+int LightButtonInPin2 = 4; //Input button signal to pin 8
+int LightButtonOutPin2 = 10; //Output to light circuit
+
+int state = LOW; //Reading of first input pin
+int state2 = LOW; //Reading of second input pin
+int previous = HIGH; //Reading of first output pin
+int previous2 = HIGH; //Reading of second output pin
+int reading; //Previous reading of first input pin
+int reading2; //Previous reading of second input pin
+
+long time[1]; //Names two time longs to regulate noise
+
+long noise = 200; //indicates debounce time (200 milliseconds)
+
+void setup() {
+  pinMode(LightButtonInPin, INPUT); 
+  pinMode(LightButtonOutPin, OUTPUT);
+                                      //Indicates 4 input and output pins (variable names to be changed)
+  pinMode(LightButtonInPin2, INPUT);
+  pinMode(LightButtonOutPin2, OUTPUT);
+
+  time[0] = 0; //Sets both time variables
+  time[1] = 0;
+}
+
+void loop() {
+
+reading = digitalRead(LightButtonInPin);{ //Looks for change in state of first button
+
+  if (reading == LOW && previous == HIGH && millis() - time[0] > noise) { //Detects first button change of state.
+    if (state == LOW) //If enough time passed in between presses,
+      state = HIGH;     //first light changes state.
+    else
+      state = LOW;
+
+    time[0] = millis();
+  }
+
+}
+
+  digitalWrite(LightButtonOutPin, state); //Outputs to first light
+
+  previous = reading; //Remembers previous light state
+
+  reading2 = digitalRead(LightButtonInPin2);{ //Looks for change in state of second button
+
+  if (reading2 == LOW && previous2 == HIGH && millis() - time[1] > noise) { //Detects second button change of state.
+    if (state2 == LOW) //If enough time passed in between presses,
+      state2 = HIGH;     //second light changes state.
+    else
+      state2 = LOW;
+
+    time[1] = millis();
+  }
+
+}
+
+  digitalWrite(LightButtonOutPin2, state2); //Outputs to second light
+
+  previous2 = reading2; //Remembers previous light state
+
+}
