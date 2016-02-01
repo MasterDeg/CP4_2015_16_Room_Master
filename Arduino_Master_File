@@ -169,9 +169,9 @@ pinMode(SW_pin, INPUT);
 
 //BEGINNING OF OG SQUAD VOID SETUP
 
-void setup() { pinMode(ProjectorButtonPin, INPUT); 
+pinMode(ProjectorButtonPin, INPUT); 
 pinMode(ProjectorPin, OUTPUT); 
-Serial.begin(9600); }
+Serial.begin(9600); 
 
 //END OF OG SQUAD VOID SETUP
 
