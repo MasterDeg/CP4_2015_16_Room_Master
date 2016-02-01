@@ -268,6 +268,8 @@ digitalWrite(ProjectorPin, ProjectorState);
 // it'll be the lastButtonState: 
 lastProjectorButtonState = reading; }
 
+//End of OG Squad Void loop
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
